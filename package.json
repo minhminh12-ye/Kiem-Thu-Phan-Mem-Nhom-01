@@ -1,0 +1,21 @@
+{
+  "name": "mainproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "cd backend && npm start",
+    "client": "cd frontend && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VHD-creator/Group_7_project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VHD-creator/Group_7_project/issues"
+  },
+  "homepage": "https://github.com/VHD-creator/Group_7_project#readme"
+}
