@@ -3,27 +3,34 @@ import connection from "../../models/db.js";
 
 const router = express.Router();
 
+const generateNextProductId = async () => {
+  const [rows] = await connection.query('SELECT product_id FROM products');
+  const ids = rows.map((row) => Number(row.product_id)).filter(Number.isFinite);
+  const maxId = ids.length > 0 ? Math.max(...ids) : 0;
+  return maxId + 1;
+};
+
 router.get("/", async (req, res) => {
   try {
     const [result] = await connection.query(
-        `SELECT 
-            p.product_id AS id, 
-            p.product_name, 
-            p.category_id, 
-            c.category_name, 
-            p.brand_id, 
-            b.brand_name, 
-            p.price, 
-            p.stock, 
-            p.specs, 
-            p.image_url
-        FROM products p 
-        JOIN category c ON p.category_id = c.category_id
-        JOIN brands b ON p.brand_id = b.brand_id`
+      `SELECT
+          p.product_id AS id,
+          p.product_name,
+          p.category_id,
+          c.category_name,
+          p.brand_id,
+          b.brand_name,
+          p.price,
+          p.stock,
+          p.specs,
+          p.image_url
+      FROM products p
+      JOIN category c ON p.category_id = c.category_id
+      JOIN brands b ON p.brand_id = b.brand_id`
     );
     return res.json(result);
   } catch (err) {
-    console.error("Lỗi SQL chi tiết:", err); // In lỗi ra Terminal để dễ theo dõi
+    console.error("Lỗi SQL chi tiết:", err);
     return res.status(500).json({ error: err.message });
   }
 });
@@ -33,11 +40,11 @@ router.get("/type/:type", async (req, res) => {
   try {
     const type = req.params.type;
     const [result] = await connection.query(
-      `SELECT p.id, p.product_name, c.category_name, b.brand_name, p.price, p.stock, p.specs
-       FROM products p 
-       JOIN category c ON p.category_id = c.id
-       JOIN brands b ON p.brand_id = b.id
-       WHERE c.category_name = ?`, 
+      `SELECT p.product_id AS id, p.product_name, c.category_name, b.brand_name, p.price, p.stock, p.specs
+       FROM products p
+       JOIN category c ON p.category_id = c.category_id
+       JOIN brands b ON p.brand_id = b.brand_id
+       WHERE c.category_name = ?`,
       [type]
     );
     return res.json(result);
@@ -50,42 +57,38 @@ router.get("/type/:type", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const { product_name, category_id, brand_id, price, stock, specs, image_url } = req.body;
-    
-    // Validation
+
     if (!product_name || !category_id || !brand_id || price === undefined || stock === undefined) {
       return res.status(400).json({ error: 'Thiếu thông tin bắt buộc' });
     }
 
-    // Chuyển specs thành JSON string nếu là object, hoặc null nếu rỗng
     let specsJson = null;
     if (specs && typeof specs === 'object') {
-      // specs là object và không null
       specsJson = Object.keys(specs).length > 0 ? JSON.stringify(specs) : null;
     } else if (specs && typeof specs === 'string' && specs.trim() !== '') {
-      // specs là string và không rỗng
       specsJson = specs;
     }
-    // Nếu specs là null, undefined, empty string → specsJson = null
 
+    const productId = await generateNextProductId();
     const query = `
-      INSERT INTO products (product_name, category_id, brand_id, price, stock, specs, image_url)
-      VALUES (?, ?, ?, ?, ?, ?, ?)
+      INSERT INTO products (product_id, product_name, category_id, brand_id, price, stock, specs, image_url)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     `;
-    console.log('📝 INSERT specs:', { raw: specs, type: typeof specs, specsJson });
-    
-    const [result] = await connection.query(query, [
+
+    await connection.query(query, [
+      productId,
       product_name,
       category_id,
       brand_id,
       price,
       stock,
       specsJson,
-      req.body.image_url || null
+      image_url || null
     ]);
 
     return res.status(201).json({
       message: 'Thêm sản phẩm thành công',
-      productId: result.insertId
+      productId
     });
   } catch (err) {
     return res.status(500).json({ error: err.message });
@@ -98,7 +101,6 @@ router.put("/:id", async (req, res) => {
     const productId = req.params.id;
     const updateData = req.body;
 
-    // Kiểm tra xem có data để update không
     if (Object.keys(updateData).length === 0) {
       return res.status(400).json({ error: 'Không có dữ liệu để cập nhật' });
     }
@@ -106,22 +108,17 @@ router.put("/:id", async (req, res) => {
     const fields = [];
     const values = [];
 
-    // Các field được phép update
     const allowedFields = ['product_name', 'category_id', 'brand_id', 'price', 'stock', 'specs', 'image_url'];
 
     for (const [key, value] of Object.entries(updateData)) {
       if (allowedFields.includes(key)) {
         fields.push(`${key} = ?`);
-        // Xử lý specs field đặc biệt
         if (key === 'specs') {
           if (value && typeof value === 'object') {
-            // Object không rỗng
             values.push(Object.keys(value).length > 0 ? JSON.stringify(value) : null);
           } else if (value && typeof value === 'string' && value.trim() !== '') {
-            // String không rỗng
             values.push(value);
           } else {
-            // null, undefined, empty → lưu null
             values.push(null);
           }
         } else {
@@ -134,10 +131,9 @@ router.put("/:id", async (req, res) => {
       return res.status(400).json({ error: 'Không có field hợp lệ để cập nhật' });
     }
 
-    // Thêm productId vào cuối mảng values
     values.push(productId);
 
-    const query = `UPDATE products SET ${fields.join(', ')} WHERE id = ?`;
+    const query = `UPDATE products SET ${fields.join(', ')} WHERE product_id = ?`;
 
     const [result] = await connection.query(query, values);
 
@@ -145,9 +141,9 @@ router.put("/:id", async (req, res) => {
       return res.status(404).json({ error: 'Không tìm thấy sản phẩm' });
     }
 
-    return res.json({ 
+    return res.json({
       message: 'Cập nhật sản phẩm thành công',
-      productId: productId,
+      productId,
       updatedFields: Object.keys(updateData)
     });
   } catch (err) {
@@ -159,8 +155,8 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   try {
     const productId = req.params.id;
-    const query = "DELETE FROM products WHERE id = ?";
-    
+    const query = "DELETE FROM products WHERE product_id = ?";
+
     const [result] = await connection.query(query, [productId]);
 
     if (result.affectedRows === 0) {
