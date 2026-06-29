@@ -73,4 +73,30 @@ router.post('/checkout', async (req, res) => {
   }
 });
 
+// PUT /api/orders/:id/status
+router.put('/:id/status', async (req, res) => {
+  const { id } = req.params;
+  const { status } = req.body;
+
+  if (!status) {
+    return res.status(400).json({ error: 'Thiếu thông tin status' });
+  }
+
+  try {
+    const [result] = await connection.query(
+      'UPDATE `order` SET status = ? WHERE id = ?',
+      [status, id]
+    );
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ error: 'Không tìm thấy đơn hàng' });
+    }
+
+    res.json({ message: 'Cập nhật trạng thái thành công' });
+  } catch (err) {
+    console.error('Lỗi cập nhật trạng thái:', err);
+    res.status(500).json({ error: 'Lỗi server khi cập nhật trạng thái' });
+  }
+});
+
 export default router;

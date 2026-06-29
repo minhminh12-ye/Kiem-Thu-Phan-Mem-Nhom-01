@@ -16,7 +16,7 @@ const generateNextBrandId = async () => {
 router.get('/', async (req, res) => {
   try {
     const [rows] = await connection.query(
-      `SELECT b.id, b.brand_name, COUNT(p.id) as product_count
+      `SELECT b.brand_id AS id, b.brand_name, COUNT(p.product_id) as product_count
        FROM brands b
        LEFT JOIN products p ON b.brand_id = p.brand_id
        GROUP BY b.brand_id, b.brand_name

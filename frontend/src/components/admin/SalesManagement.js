@@ -27,10 +27,13 @@ const SalesManagement = () => {
     try {
       const headers = getAuthHeaders ? getAuthHeaders() : {};
       const response = await axios.get(API_URL, { headers });
-      const orderData = response.data;
-      
+      const orderData = response.data.map(order => ({
+        ...order,
+        status: (order.status || '').toLowerCase()
+      }));
+
       setOrders(orderData);
-      
+
       // Tính toán thống kê (loại trừ đơn hàng đã hủy)
       const totalRevenue = orderData
         .filter(o => o.status !== 'cancelled')
@@ -38,7 +41,7 @@ const SalesManagement = () => {
       const totalOrders = orderData.length;
       const pendingOrders = orderData.filter(o => o.status === 'pending').length;
       const completedOrders = orderData.filter(o => o.status === 'completed').length;
-      
+
       setStats({ totalRevenue, totalOrders, pendingOrders, completedOrders });
       setLoading(false);
     } catch (err) {
@@ -71,9 +74,9 @@ const SalesManagement = () => {
       completed: { text: 'Hoàn thành', color: '#28a745', bgColor: '#d4edda' },
       cancelled: { text: 'Đã hủy', color: '#dc3545', bgColor: '#f8d7da' }
     };
-    
+
     const statusInfo = statusMap[status] || statusMap.pending;
-    
+
     return (
       <span style={{
         padding: '5px 12px',
@@ -102,7 +105,7 @@ const SalesManagement = () => {
             <div style={styles.statValue}>{(stats.totalRevenue * 1000).toLocaleString('vi-VN')}đ</div>
           </div>
         </div>
-        
+
         <div style={styles.statCard}>
           <div style={styles.statIcon}>📦</div>
           <div>
@@ -110,7 +113,7 @@ const SalesManagement = () => {
             <div style={styles.statValue}>{stats.totalOrders}</div>
           </div>
         </div>
-        
+
         <div style={styles.statCard}>
           <div style={styles.statIcon}>⏳</div>
           <div>
@@ -118,7 +121,7 @@ const SalesManagement = () => {
             <div style={styles.statValue}>{stats.pendingOrders}</div>
           </div>
         </div>
-        
+
         <div style={styles.statCard}>
           <div style={styles.statIcon}>✅</div>
           <div>

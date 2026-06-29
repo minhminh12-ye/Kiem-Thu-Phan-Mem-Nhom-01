@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/VHD-creator/Group_7_project/issues"
   },
-  "homepage": "https://github.com/VHD-creator/Group_7_project#readme"
+  "homepage": "https://github.com/VHD-creator/Group_7_project#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  }
 }
