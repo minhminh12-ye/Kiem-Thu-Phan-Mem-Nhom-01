@@ -1,0 +1,8 @@
+node_modules/
+venv/
+results/
+.env
+*.png
+log.html
+report.html
+output.xml

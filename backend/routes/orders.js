@@ -19,42 +19,24 @@ router.get('/', async (req, res) => {
   }
 });
 
-// PUT /api/orders/:id/status - Cập nhật trạng thái đơn hàng
-router.put('/:id/status', async (req, res) => {
-  const { id } = req.params;
-  const { status } = req.body;
-  
-  const validStatuses = ['pending', 'processing', 'completed', 'cancelled'];
-  if (!validStatuses.includes(status)) {
-    return res.status(400).json({ error: 'Trạng thái không hợp lệ' });
-  }
-
-  try {
-    await connection.query('UPDATE `order` SET status = ? WHERE id = ?', [status, id]);
-    res.json({ message: 'Cập nhật trạng thái thành công' });
-  } catch (err) {
-    console.error('Lỗi cập nhật trạng thái:', err);
-    res.status(500).json({ error: 'Lỗi server khi cập nhật trạng thái' });
-  }
-});
-
 // POST /api/orders/checkout
 router.post('/checkout', async (req, res) => {
-  const { user_id, payment_method } = req.body;
-  if (!user_id || !payment_method) {
-    return res.status(400).json({ error: 'Thiếu thông tin user hoặc phương thức thanh toán' });
+  const { user_id } = req.body; 
+  if (!user_id) {
+    return res.status(400).json({ error: 'Thiếu thông tin user_id' });
   }
 
   try {
-    // 1. Lấy giỏ hàng - JOIN cart, cartItem và products để lấy giá
+    // 1. Lấy giỏ hàng - Khớp với bảng 'cartitem' và 'product_id' trong database
     const [cartRows] = await connection.query(
       `SELECT ci.*, c.user_id, p.price 
        FROM cart c 
-       JOIN cartItem ci ON c.id = ci.cart_id 
-       JOIN products p ON ci.product_id = p.id
+       JOIN cartitem ci ON c.id = ci.cart_id 
+       JOIN products p ON ci.product_id = p.product_id
        WHERE c.user_id = ?`,
       [user_id]
     );
+    
     if (!cartRows.length) {
       return res.status(400).json({ error: 'Giỏ hàng rỗng' });
     }
@@ -62,31 +44,32 @@ router.post('/checkout', async (req, res) => {
     // Tính tổng tiền
     const total_price = cartRows.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
-    // 2. Tạo đơn hàng
+    // 2. Tạo đơn hàng - Khớp đúng các cột: user_id, address_id, total_price, status, created_at
+    // Sử dụng address_id = 101 (giá trị có sẵn trong bảng dữ liệu mẫu của bạn)
     const [orderResult] = await connection.query(
-      'INSERT INTO `order` (user_id, total_price, payment_method, status, created_at) VALUES (?, ?, ?, ?, NOW())',
-      [user_id, total_price, payment_method, 'pending']
+      'INSERT INTO `order` (user_id, address_id, total_price, status, created_at) VALUES (?, ?, ?, ?, NOW())',
+      [user_id, 101, total_price, 'Pending']
     );
     const order_id = orderResult.insertId;
 
-    // 3. Tạo các orderItem với price_each
+    // 3. Tạo các chi tiết đơn hàng - Khớp với bảng 'orderitem' vừa tạo
     for (const item of cartRows) {
       await connection.query(
-        'INSERT INTO orderItem (order_id, product_id, quantity, price_each) VALUES (?, ?, ?, ?)',
+        'INSERT INTO orderitem (order_id, product_id, quantity, price_each) VALUES (?, ?, ?, ?)',
         [order_id, item.product_id, item.quantity, item.price]
       );
     }
 
-    // 4. Xóa giỏ hàng - xóa từ cartItem dựa trên cart_id
+    // 4. Xóa giỏ hàng - Khớp với bảng 'cartitem'
     const [carts] = await connection.query('SELECT id FROM cart WHERE user_id = ?', [user_id]);
     if (carts.length > 0) {
-      await connection.query('DELETE FROM cartItem WHERE cart_id = ?', [carts[0].id]);
+      await connection.query('DELETE FROM cartitem WHERE cart_id = ?', [carts[0].id]);
     }
 
-    res.json({ order_id });
+    return res.json({ success: true, message: "Đặt hàng thành công", order_id });
   } catch (err) {
     console.error('Lỗi tạo đơn hàng:', err);
-    res.status(500).json({ error: 'Lỗi server khi tạo đơn hàng' });
+    return res.status(500).json({ error: err.message });
   }
 });
 

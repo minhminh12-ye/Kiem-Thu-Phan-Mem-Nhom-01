@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
     const [results] = await connection.query(`
       SELECT u.user_id, u.user_name, u.email, u.roleid, r.role_name 
       FROM users u
-      JOIN role r ON u.roleid = r.id
+      JOIN role r ON u.roleid = r.roleId
       ORDER BY u.user_id DESC
     `);
     
@@ -36,7 +36,7 @@ router.get("/:id", async (req, res) => {
           u.roleid,
           r.role_name
         FROM users u
-        JOIN role r ON u.roleid = r.id
+        JOIN role r ON u.roleid = r.roleId
         WHERE u.user_id = ?`, 
       [userId]
     );

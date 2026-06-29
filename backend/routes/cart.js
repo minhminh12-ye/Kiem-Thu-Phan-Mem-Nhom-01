@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
         const [items] = await connection.query(
             `SELECT ci.id, ci.product_id, p.product_name, p.price, p.image_url, ci.quantity
              FROM cartItem ci
-             JOIN products p ON ci.product_id = p.id
+             JOIN products p ON ci.product_id = p.product_id
              WHERE ci.cart_id = ?`,
             [cartId]
         );
@@ -39,7 +39,7 @@ router.post("/add", async (req, res) => {
 
     try {
         // Kiểm tra giỏ hàng của user
-        const [products] = await connection.query("SELECT * FROM products WHERE id = ?", [product_id]);
+        const [products] = await connection.query("SELECT * FROM products WHERE product_id = ?", [product_id]);
 
         if (!products.length) {
             return res.status(404).json({ error: "Sản phẩm không tồn tại" });
@@ -84,7 +84,7 @@ router.put("/item/:id", async (req, res) => {
 
   try {
     const [items] = await connection.query(
-      "SELECT ci.*, p.stock, p.price FROM cartItem ci JOIN products p ON ci.product_id = p.id WHERE ci.id = ?",
+      "SELECT ci.*, p.stock, p.price FROM cartItem ci JOIN products p ON ci.product_id = p.product_id WHERE ci.id = ?",
       [cartItemId]
     );
     if (!items.length) return res.status(404).json({ error: "Item không tồn tại" });

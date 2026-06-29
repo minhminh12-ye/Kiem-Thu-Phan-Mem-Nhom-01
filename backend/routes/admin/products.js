@@ -33,10 +33,10 @@ router.get("/type/:type", async (req, res) => {
   try {
     const type = req.params.type;
     const [result] = await connection.query(
-      `SELECT p.id, p.product_name, c.category_name, b.brand_name, p.price, p.stock, p.specs
+      `SELECT p.product_id AS id, p.product_name, c.category_name, b.brand_name, p.price, p.stock, p.specs
        FROM products p 
-       JOIN category c ON p.category_id = c.id
-       JOIN brands b ON p.brand_id = b.id
+       JOIN category c ON p.category_id = c.category_id
+       JOIN brands b ON p.brand_id =  b.brand_id
        WHERE c.category_name = ?`, 
       [type]
     );
@@ -137,7 +137,7 @@ router.put("/:id", async (req, res) => {
     // Thêm productId vào cuối mảng values
     values.push(productId);
 
-    const query = `UPDATE products SET ${fields.join(', ')} WHERE id = ?`;
+    const query = `UPDATE products SET ${fields.join(', ')} WHERE product_id= ?`;
 
     const [result] = await connection.query(query, values);
 
@@ -159,7 +159,7 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   try {
     const productId = req.params.id;
-    const query = "DELETE FROM products WHERE id = ?";
+    const query = "DELETE FROM products WHERE product_id = ?";
     
     const [result] = await connection.query(query, [productId]);
 

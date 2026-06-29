@@ -7,11 +7,11 @@ const router = express.Router();
 router.get('/', async (req, res) => {
   try {
     const [rows] = await connection.query(
-      `SELECT b.id, b.brand_name, COUNT(p.id) as product_count
+      `SELECT b.brand_id AS id, b.brand_name, COUNT(p.product_id) as product_count
        FROM brands b
-       LEFT JOIN products p ON b.id = p.brand_id
-       GROUP BY b.id, b.brand_name
-       ORDER BY b.id DESC`
+       LEFT JOIN products p ON b.brand_id = p.brand_id
+       GROUP BY b.brand_id, b.brand_name
+       ORDER BY b.brand_id DESC`
     );
     res.json(rows);
   } catch (err) {
@@ -48,7 +48,7 @@ router.put('/:id', async (req, res) => {
 
   try {
     await connection.query(
-      'UPDATE brands SET brand_name = ? WHERE id = ?',
+      'UPDATE brands SET brand_name = ? WHERE brand_id = ?',
       [brand_name.trim(), id]
     );
     res.json({ message: 'Cập nhật thương hiệu thành công' });
@@ -74,7 +74,7 @@ router.delete('/:id', async (req, res) => {
       });
     }
 
-    await connection.query('DELETE FROM brands WHERE id = ?', [id]);
+    await connection.query('DELETE FROM brands WHERE brand_id = ?', [id]);
     res.json({ message: 'Xóa thương hiệu thành công' });
   } catch (err) {
     res.status(500).json({ error: err.message });
