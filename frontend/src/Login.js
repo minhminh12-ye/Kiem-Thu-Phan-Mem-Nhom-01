@@ -35,8 +35,14 @@ function Login() {
 
 
       // Điều hướng theo role - KIỂM TRA AN TOÀN
-      if (data.user && data.user.role && data.user.role.toLowerCase() === "admin") {
-        navigate("/admin/dashboard");  // ✅ Đúng route
+      const isAdmin = Boolean(
+        data.user?.isAdmin ||
+        data.user?.roleId === 1 ||
+        ['admin', 'administrator'].includes(String(data.user?.role || '').toLowerCase())
+      );
+
+      if (isAdmin) {
+        navigate("/admin/dashboard");
       } else {
         navigate("/");
       }

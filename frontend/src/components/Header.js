@@ -9,6 +9,12 @@ function Header() {
     const { cart } = useContext(CartContext)
     const navigate = useNavigate();
 
+    const isAdmin = Boolean(
+        user?.isAdmin ||
+        user?.roleId === 1 ||
+        ['admin', 'administrator'].includes(String(user?.role || '').toLowerCase())
+    );
+
     const handleLogout = () => {
         logout()
         navigate('/')
@@ -70,7 +76,7 @@ function Header() {
                     <div>
                         <span>Xin chào, {user.name}</span> |{' '}
                         <button onClick={handleLogout}>Đăng xuất</button>
-                        {user.role === 'admin' && (
+                        {isAdmin && (
                             <>
                                 {' | '}
                                 <Link to="/admin" style={{ textDecoration: 'none', color: 'black' }}>Admin</Link>

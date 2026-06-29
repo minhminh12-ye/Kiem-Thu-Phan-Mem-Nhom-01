@@ -24,7 +24,13 @@ const AdminRoute = () => {
     return <Navigate to="/login" replace />;
   }
 
-  if (user.role !== 'admin') {
+  const isAdmin = Boolean(
+    user.isAdmin ||
+    user.roleId === 1 ||
+    ['admin', 'administrator'].includes(String(user.role || '').toLowerCase())
+  );
+
+  if (!isAdmin) {
     return <Navigate to="/access-denied" replace />;
   }
 

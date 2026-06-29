@@ -50,7 +50,7 @@ router.post("/login", async (req, res) => {
 
     // Tìm user với JOIN role
     const [users] = await connection.query(
-      `SELECT u.user_id, u.user_name, u.email, u.roleid, r.role_name
+      `SELECT u.user_id, u.user_name, u.email, u.roleid AS roleId, r.role_name
        FROM users u
        JOIN role r ON u.roleid = r.roleId
        WHERE u.email = ? AND u.password = ?`,
@@ -62,6 +62,7 @@ router.post("/login", async (req, res) => {
     }
 
     const user = users[0];
+    const isAdmin = user.roleId === 1 || /admin/i.test(user.role_name || '');
 
     // ✅ Trả về đúng format cho frontend
     return res.json({
@@ -70,8 +71,9 @@ router.post("/login", async (req, res) => {
         id: user.user_id,
         name: user.user_name,
         email: user.email,
-        role: user.role_name.toLowerCase(),
-        roleId: user.roleId
+        role: isAdmin ? 'admin' : (user.role_name || 'customer').toLowerCase(),
+        roleId: user.roleId,
+        isAdmin
       }
     });
   } catch (err) {

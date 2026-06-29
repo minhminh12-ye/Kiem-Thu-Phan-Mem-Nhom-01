@@ -1,0 +1,1869 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.13.7 on win32)" generated="2026-06-24T23:35:00.980392" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Admin" source="C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\tests\test_admin.robot">
+<test id="s1-t1" name="TC PRO 01 Them San Pham Moi Thanh Cong" line="61">
+<kw name="Dang Nhap Admin">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:01.393706" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-24T23:35:01.393436" elapsed="2.759809"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-24T23:35:04.154184" elapsed="0.055201"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@placeholder='Nhập email']</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:04.209667" elapsed="0.082861"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:04.293272" level="INFO">Typing text 'admin@gmail.com' into text field 'xpath=//input[@placeholder='Nhập email']'.</msg>
+<arg>xpath=//input[@placeholder='Nhập email']</arg>
+<arg>${ADMIN_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:04.292816" elapsed="0.306133"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:04.599696" level="INFO">Typing password into text field 'xpath=//input[@type='password']'.</msg>
+<msg time="2026-06-24T23:35:04.678551" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>xpath=//input[@type='password']</arg>
+<arg>${ADMIN_PASS}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:04.599277" elapsed="0.212635"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:04.812578" level="INFO">Clicking button 'xpath=//button[contains(normalize-space(.), 'Đăng nhập')]'.</msg>
+<arg>xpath=//button[contains(normalize-space(.), 'Đăng nhập')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:04.812150" elapsed="0.136128"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/admin</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-06-24T23:35:04.948707" elapsed="0.043016"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:01.392837" elapsed="3.599030"/>
+</kw>
+<kw name="Di Den Quan Ly San Pham">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[contains(., 'Quản lý Sản phẩm')]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:04.992730" elapsed="0.090704"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:05.083927" level="INFO">Clicking element 'xpath=//a[contains(., 'Quản lý Sản phẩm')]'.</msg>
+<arg>xpath=//a[contains(., 'Quản lý Sản phẩm')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:05.083652" elapsed="0.093219"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Quản lý Sản phẩm</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:05.177361" elapsed="0.050079"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:04.992409" elapsed="0.235224"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:05.228581" level="INFO">Clicking button 'xpath=//button[contains(normalize-space(.), '+ Thêm Sản phẩm Mới')]'.</msg>
+<arg>xpath=//button[contains(normalize-space(.), '+ Thêm Sản phẩm Mới')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:05.228221" elapsed="0.141952"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Thêm Sản phẩm Mới</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:05.370968" elapsed="0.013231"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:05.385347" level="INFO">Typing text 'Monitor Samsung Curved Robot' into text field 'xpath=//input[@name='name']'.</msg>
+<arg>xpath=//input[@name='name']</arg>
+<arg>${NEW_PRODUCT_NAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:05.384829" elapsed="0.211711"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:05.597481" level="INFO">Selecting options from selection list 'xpath=//select[@name='category_id']' by label Máy ảnh.</msg>
+<arg>xpath=//select[@name='category_id']</arg>
+<arg>${NEW_PRODUCT_CAT}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-06-24T23:35:05.596880" elapsed="0.081961"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:05.679473" level="INFO">Selecting options from selection list 'xpath=//select[@name='brand_id']' by label LG.</msg>
+<arg>xpath=//select[@name='brand_id']</arg>
+<arg>${NEW_PRODUCT_BRAND}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-06-24T23:35:05.679174" elapsed="0.070200"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@name='price']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:05.749709" elapsed="0.038419"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:05.788855" level="INFO">Typing text '12000000' into text field 'xpath=//input[@name='price']'.</msg>
+<arg>xpath=//input[@name='price']</arg>
+<arg>${NEW_PRODUCT_PRICE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:05.788501" elapsed="0.091076"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@name='stock']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:05.880113" elapsed="0.030218"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:05.912910" level="INFO">Typing text '15' into text field 'xpath=//input[@name='stock']'.</msg>
+<arg>xpath=//input[@name='stock']</arg>
+<arg>${NEW_PRODUCT_STOCK}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:05.911929" elapsed="0.067840"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:05.980483" level="INFO">Typing text 'Màu' into text field 'xpath=(//input[@placeholder='Tên thông số (vd: Màu, Kích thước)'])[1]'.</msg>
+<arg>xpath=(//input[@placeholder='Tên thông số (vd: Màu, Kích thước)'])[1]</arg>
+<arg>${NEW_PRODUCT_SPEC_K1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:05.980162" elapsed="0.077267"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:06.058286" level="INFO">Typing text 'Đỏ' into text field 'xpath=(//input[@placeholder='Giá trị (vd: Đen, 5 inch)'])[1]'.</msg>
+<arg>xpath=(//input[@placeholder='Giá trị (vd: Đen, 5 inch)'])[1]</arg>
+<arg>${NEW_PRODUCT_SPEC_V1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:06.057795" elapsed="0.069090"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:06.127527" level="INFO">Clicking button 'xpath=//button[contains(normalize-space(.), '+ Thêm thông số')]'.</msg>
+<arg>xpath=//button[contains(normalize-space(.), '+ Thêm thông số')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:06.127258" elapsed="0.066257"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=(//input[@placeholder='Tên thông số (vd: Màu, Kích thước)'])[2]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:06.194517" elapsed="0.016676"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:06.212022" level="INFO">Typing text 'Độ dài' into text field 'xpath=(//input[@placeholder='Tên thông số (vd: Màu, Kích thước)'])[2]'.</msg>
+<arg>xpath=(//input[@placeholder='Tên thông số (vd: Màu, Kích thước)'])[2]</arg>
+<arg>${NEW_PRODUCT_SPEC_K2}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:06.211611" elapsed="0.108947"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:06.321364" level="INFO">Typing text '8 inch' into text field 'xpath=(//input[@placeholder='Giá trị (vd: Đen, 5 inch)'])[2]'.</msg>
+<arg>xpath=(//input[@placeholder='Giá trị (vd: Đen, 5 inch)'])[2]</arg>
+<arg>${NEW_PRODUCT_SPEC_V2}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:06.320954" elapsed="0.098189"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:06.420263" level="INFO">Typing text 'https://picsum.photos/200/311' into text field 'xpath=//input[@name='image_url']'.</msg>
+<arg>xpath=//input[@name='image_url']</arg>
+<arg>${NEW_PRODUCT_IMAGE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:06.419922" elapsed="0.173790"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:06.594677" level="INFO">Clicking button 'xpath=//button[@type='submit' and contains(normalize-space(.), 'Lưu')]'.</msg>
+<arg>xpath=//button[@type='submit' and contains(normalize-space(.), 'Lưu')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:06.594266" elapsed="0.065938"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Thêm sản phẩm mới thành công!</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:06.661223" elapsed="0.036741"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Capture Screenshot For Test Case">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2026-06-24T23:35:06.700812" level="INFO" html="true">Created directory '&lt;a href="file://C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\screenshots"&gt;C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\screenshots&lt;/a&gt;'.</msg>
+<arg>${OUTPUT_DIR}/screenshots</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2026-06-24T23:35:06.699927" elapsed="0.001039"/>
+</kw>
+<kw name="Get Time" owner="BuiltIn">
+<msg time="2026-06-24T23:35:06.701933" level="INFO">${timestamp} = 1782318906</msg>
+<var>${timestamp}</var>
+<arg>epoch</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="PASS" start="2026-06-24T23:35:06.701233" elapsed="0.000748"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:06.802902" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/TC%20PRO%2001%20Them%20San%20Pham%20Moi%20Thanh%20Cong_1782318906.png"&gt;&lt;img src="screenshots/TC%20PRO%2001%20Them%20San%20Pham%20Moi%20Thanh%20Cong_1782318906.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${OUTPUT_DIR}/screenshots/${TEST_NAME}_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-06-24T23:35:06.702279" elapsed="0.100871"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:06.699592" elapsed="0.103791"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-24T23:35:06.803721" elapsed="2.369235"/>
+</kw>
+<arg>Capture Screenshot For Test Case</arg>
+<arg>AND</arg>
+<arg>Close Browser</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-06-24T23:35:06.698789" elapsed="2.474412"/>
+</kw>
+<doc>Thêm sản phẩm mới với đầy đủ thông tin.</doc>
+<tag>create</tag>
+<tag>product</tag>
+<status status="PASS" start="2026-06-24T23:35:01.391820" elapsed="7.781921"/>
+</test>
+<test id="s1-t2" name="TC PRO 02 Cap Nhat Gia San Pham" line="86">
+<kw name="Dang Nhap Admin">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:09.177196" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-24T23:35:09.176762" elapsed="1.755808"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-24T23:35:10.932936" elapsed="0.028198"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@placeholder='Nhập email']</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:10.961534" elapsed="0.039770"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:11.002426" level="INFO">Typing text 'admin@gmail.com' into text field 'xpath=//input[@placeholder='Nhập email']'.</msg>
+<arg>xpath=//input[@placeholder='Nhập email']</arg>
+<arg>${ADMIN_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:11.001717" elapsed="0.209714"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:11.212811" level="INFO">Typing password into text field 'xpath=//input[@type='password']'.</msg>
+<msg time="2026-06-24T23:35:11.263043" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>xpath=//input[@type='password']</arg>
+<arg>${ADMIN_PASS}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:11.211984" elapsed="0.144752"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:11.357655" level="INFO">Clicking button 'xpath=//button[contains(normalize-space(.), 'Đăng nhập')]'.</msg>
+<arg>xpath=//button[contains(normalize-space(.), 'Đăng nhập')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:11.357117" elapsed="0.126944"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/admin</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-06-24T23:35:11.484513" elapsed="0.051789"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:09.176218" elapsed="2.360431"/>
+</kw>
+<kw name="Di Den Quan Ly San Pham">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[contains(., 'Quản lý Sản phẩm')]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:11.538433" elapsed="0.079395"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:11.618528" level="INFO">Clicking element 'xpath=//a[contains(., 'Quản lý Sản phẩm')]'.</msg>
+<arg>xpath=//a[contains(., 'Quản lý Sản phẩm')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:11.618164" elapsed="0.093668"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Quản lý Sản phẩm</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:11.712365" elapsed="0.042200"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:11.537745" elapsed="0.217019"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=(//button[contains(normalize-space(.), 'Sửa')])[1]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:11.755288" elapsed="0.032689"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:11.788981" level="INFO">Clicking button 'xpath=(//button[contains(normalize-space(.), 'Sửa')])[1]'.</msg>
+<arg>xpath=(//button[contains(normalize-space(.), 'Sửa')])[1]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:11.788513" elapsed="0.147759"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Sửa Sản phẩm</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:11.937017" elapsed="0.020792"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@name='price']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:11.958510" elapsed="0.059606"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:12.019714" level="INFO">Typing text '99999' into text field 'xpath=//input[@name='price']'.</msg>
+<arg>xpath=//input[@name='price']</arg>
+<arg>${UPDATE_PRODUCT_PRICE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:12.019038" elapsed="0.100273"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:12.120168" level="INFO">Clicking button 'xpath=//button[@type='submit' and contains(normalize-space(.), 'Lưu')]'.</msg>
+<arg>xpath=//button[@type='submit' and contains(normalize-space(.), 'Lưu')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:12.119795" elapsed="0.141421"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Cập nhật sản phẩm thành công!</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:12.262002" elapsed="0.041993"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Capture Screenshot For Test Case">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2026-06-24T23:35:12.308856" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\screenshots"&gt;C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\screenshots&lt;/a&gt;' already exists.</msg>
+<arg>${OUTPUT_DIR}/screenshots</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2026-06-24T23:35:12.307791" elapsed="0.001324"/>
+</kw>
+<kw name="Get Time" owner="BuiltIn">
+<msg time="2026-06-24T23:35:12.310927" level="INFO">${timestamp} = 1782318912</msg>
+<var>${timestamp}</var>
+<arg>epoch</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="PASS" start="2026-06-24T23:35:12.309678" elapsed="0.001383"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:12.390726" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/TC%20PRO%2002%20Cap%20Nhat%20Gia%20San%20Pham_1782318912.png"&gt;&lt;img src="screenshots/TC%20PRO%2002%20Cap%20Nhat%20Gia%20San%20Pham_1782318912.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${OUTPUT_DIR}/screenshots/${TEST_NAME}_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-06-24T23:35:12.311554" elapsed="0.079352"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:12.306810" elapsed="0.084491"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-24T23:35:12.391908" elapsed="2.221745"/>
+</kw>
+<arg>Capture Screenshot For Test Case</arg>
+<arg>AND</arg>
+<arg>Close Browser</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-06-24T23:35:12.305779" elapsed="2.308255"/>
+</kw>
+<doc>Sửa giá sản phẩm đầu tiên thành 99999.</doc>
+<tag>product</tag>
+<tag>update</tag>
+<status status="PASS" start="2026-06-24T23:35:09.174951" elapsed="5.439868"/>
+</test>
+<test id="s1-t3" name="TC PRO 03 Xoa San Pham" line="100">
+<kw name="Dang Nhap Admin">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:14.620599" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-24T23:35:14.620065" elapsed="1.516842"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-24T23:35:16.137266" elapsed="0.040415"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@placeholder='Nhập email']</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:16.178028" elapsed="0.044366"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:16.223267" level="INFO">Typing text 'admin@gmail.com' into text field 'xpath=//input[@placeholder='Nhập email']'.</msg>
+<arg>xpath=//input[@placeholder='Nhập email']</arg>
+<arg>${ADMIN_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:16.222748" elapsed="0.300202"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:16.523998" level="INFO">Typing password into text field 'xpath=//input[@type='password']'.</msg>
+<msg time="2026-06-24T23:35:16.595534" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>xpath=//input[@type='password']</arg>
+<arg>${ADMIN_PASS}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:16.523347" elapsed="0.170698"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:16.695087" level="INFO">Clicking button 'xpath=//button[contains(normalize-space(.), 'Đăng nhập')]'.</msg>
+<arg>xpath=//button[contains(normalize-space(.), 'Đăng nhập')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:16.694618" elapsed="0.123130"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/admin</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-06-24T23:35:16.818499" elapsed="0.090137"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:14.619363" elapsed="2.289550"/>
+</kw>
+<kw name="Di Den Quan Ly San Pham">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[contains(., 'Quản lý Sản phẩm')]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:16.910444" elapsed="0.031904"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:16.943106" level="INFO">Clicking element 'xpath=//a[contains(., 'Quản lý Sản phẩm')]'.</msg>
+<arg>xpath=//a[contains(., 'Quản lý Sản phẩm')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:16.942660" elapsed="0.089521"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Quản lý Sản phẩm</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:17.032549" elapsed="0.060715"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:16.909806" elapsed="0.183980"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=(//button[contains(normalize-space(.), 'Xóa')])[1]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:17.094450" elapsed="0.027275"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:17.123512" level="INFO">Clicking button 'xpath=(//button[contains(normalize-space(.), 'Xóa')])[1]'.</msg>
+<arg>xpath=(//button[contains(normalize-space(.), 'Xóa')])[1]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:17.122564" elapsed="0.163327"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:17.287200" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<arg>ACCEPT</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2026-06-24T23:35:17.286750" elapsed="0.021502"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Xóa sản phẩm thành công!</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:17.309204" elapsed="0.045662"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Capture Screenshot For Test Case">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2026-06-24T23:35:17.359319" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\screenshots"&gt;C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\screenshots&lt;/a&gt;' already exists.</msg>
+<arg>${OUTPUT_DIR}/screenshots</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2026-06-24T23:35:17.358340" elapsed="0.001197"/>
+</kw>
+<kw name="Get Time" owner="BuiltIn">
+<msg time="2026-06-24T23:35:17.360878" level="INFO">${timestamp} = 1782318917</msg>
+<var>${timestamp}</var>
+<arg>epoch</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="PASS" start="2026-06-24T23:35:17.359923" elapsed="0.001055"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:17.443928" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/TC%20PRO%2003%20Xoa%20San%20Pham_1782318917.png"&gt;&lt;img src="screenshots/TC%20PRO%2003%20Xoa%20San%20Pham_1782318917.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${OUTPUT_DIR}/screenshots/${TEST_NAME}_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-06-24T23:35:17.362913" elapsed="0.081449"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:17.357230" elapsed="0.087343"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-24T23:35:17.444947" elapsed="2.317922"/>
+</kw>
+<arg>Capture Screenshot For Test Case</arg>
+<arg>AND</arg>
+<arg>Close Browser</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-06-24T23:35:17.356052" elapsed="2.406979"/>
+</kw>
+<doc>Xóa sản phẩm đầu tiên và xác nhận popup trình duyệt.</doc>
+<tag>delete</tag>
+<tag>product</tag>
+<status status="PASS" start="2026-06-24T23:35:14.617559" elapsed="5.145872"/>
+</test>
+<test id="s1-t4" name="TC CAT 01 Them Danh Muc Moi" line="111">
+<kw name="Dang Nhap Admin">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:19.767610" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-24T23:35:19.767166" elapsed="2.458109"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-24T23:35:22.225651" elapsed="0.040715"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@placeholder='Nhập email']</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:22.266892" elapsed="0.030206"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:22.297914" level="INFO">Typing text 'admin@gmail.com' into text field 'xpath=//input[@placeholder='Nhập email']'.</msg>
+<arg>xpath=//input[@placeholder='Nhập email']</arg>
+<arg>${ADMIN_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:22.297405" elapsed="0.188665"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:22.486909" level="INFO">Typing password into text field 'xpath=//input[@type='password']'.</msg>
+<msg time="2026-06-24T23:35:22.537674" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>xpath=//input[@type='password']</arg>
+<arg>${ADMIN_PASS}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:22.486400" elapsed="0.168998"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:22.656596" level="INFO">Clicking button 'xpath=//button[contains(normalize-space(.), 'Đăng nhập')]'.</msg>
+<arg>xpath=//button[contains(normalize-space(.), 'Đăng nhập')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:22.655864" elapsed="0.147918"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/admin</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-06-24T23:35:22.804205" elapsed="0.100161"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:19.766581" elapsed="3.138022"/>
+</kw>
+<kw name="Di Den Quan Ly Danh Muc">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:22.906069" elapsed="0.036344"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:22.943331" level="INFO">Clicking element 'xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]'.</msg>
+<arg>xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:22.942746" elapsed="0.079705"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Quản lý Danh mục &amp; Thương hiệu</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:23.022842" elapsed="0.048469"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:22.905446" elapsed="0.166343"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Thêm danh mục mới</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:23.072568" elapsed="0.021817"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:23.095808" level="INFO">Typing text 'Phụ Kiện Robot' into text field 'xpath=//input[@placeholder='Tên danh mục']'.</msg>
+<arg>xpath=//input[@placeholder='Tên danh mục']</arg>
+<arg>${NEW_CAT_NAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:23.095221" elapsed="0.282347"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:23.379013" level="INFO">Clicking button 'xpath=//button[@type='submit' and contains(normalize-space(.), 'Thêm mới')]'.</msg>
+<arg>xpath=//button[@type='submit' and contains(normalize-space(.), 'Thêm mới')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:23.378466" elapsed="0.094987"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Thêm danh mục thành công!</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:23.474487" elapsed="0.034085"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//tr[td[strong[text()='${NEW_CAT_NAME}']]]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:23.509341" elapsed="0.022737"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:23.546413" level="INFO">Current page contains element 'xpath=//tr[td[strong[text()='Phụ Kiện Robot']] and td[span[text()='0']]]'.</msg>
+<arg>xpath=//tr[td[strong[text()='${NEW_CAT_NAME}']] and td[span[text()='0']]]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:23.532713" elapsed="0.013947"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Capture Screenshot For Test Case">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2026-06-24T23:35:23.550447" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\screenshots"&gt;C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\screenshots&lt;/a&gt;' already exists.</msg>
+<arg>${OUTPUT_DIR}/screenshots</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2026-06-24T23:35:23.549724" elapsed="0.000886"/>
+</kw>
+<kw name="Get Time" owner="BuiltIn">
+<msg time="2026-06-24T23:35:23.551634" level="INFO">${timestamp} = 1782318923</msg>
+<var>${timestamp}</var>
+<arg>epoch</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="PASS" start="2026-06-24T23:35:23.550895" elapsed="0.000812"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:23.627186" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/TC%20CAT%2001%20Them%20Danh%20Muc%20Moi_1782318923.png"&gt;&lt;img src="screenshots/TC%20CAT%2001%20Them%20Danh%20Muc%20Moi_1782318923.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${OUTPUT_DIR}/screenshots/${TEST_NAME}_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-06-24T23:35:23.552017" elapsed="0.075376"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:23.548936" elapsed="0.078659"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-24T23:35:23.627843" elapsed="2.336511"/>
+</kw>
+<arg>Capture Screenshot For Test Case</arg>
+<arg>AND</arg>
+<arg>Close Browser</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-06-24T23:35:23.547766" elapsed="2.416960"/>
+</kw>
+<doc>Thêm danh mục mới và kiểm tra hiển thị.</doc>
+<tag>category</tag>
+<tag>create</tag>
+<status status="PASS" start="2026-06-24T23:35:19.765189" elapsed="6.200662"/>
+</test>
+<test id="s1-t5" name="TC CAT 02 Cap Nhat Danh Muc" line="124">
+<kw name="Dang Nhap Admin">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:25.969897" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-24T23:35:25.969531" elapsed="1.828330"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-24T23:35:27.798211" elapsed="0.027600"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@placeholder='Nhập email']</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:27.826198" elapsed="0.044809"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:27.871816" level="INFO">Typing text 'admin@gmail.com' into text field 'xpath=//input[@placeholder='Nhập email']'.</msg>
+<arg>xpath=//input[@placeholder='Nhập email']</arg>
+<arg>${ADMIN_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:27.871327" elapsed="0.274189"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:28.146660" level="INFO">Typing password into text field 'xpath=//input[@type='password']'.</msg>
+<msg time="2026-06-24T23:35:28.225358" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>xpath=//input[@type='password']</arg>
+<arg>${ADMIN_PASS}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:28.145979" elapsed="0.198102"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:28.345776" level="INFO">Clicking button 'xpath=//button[contains(normalize-space(.), 'Đăng nhập')]'.</msg>
+<arg>xpath=//button[contains(normalize-space(.), 'Đăng nhập')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:28.344875" elapsed="0.152401"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/admin</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-06-24T23:35:28.497985" elapsed="0.082867"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:25.969004" elapsed="2.612275"/>
+</kw>
+<kw name="Di Den Quan Ly Danh Muc">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:28.582600" elapsed="0.026550"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:28.609857" level="INFO">Clicking element 'xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]'.</msg>
+<arg>xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:28.609479" elapsed="0.100238"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Quản lý Danh mục &amp; Thương hiệu</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:28.710078" elapsed="0.043535"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:28.581980" elapsed="0.172081"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Danh sách danh mục</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:28.755003" elapsed="0.023059"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=(//button[contains(normalize-space(.), 'Sửa')])[1]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:28.778785" elapsed="0.032933"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:28.812751" level="INFO">Clicking button 'xpath=(//button[contains(normalize-space(.), 'Sửa')])[1]'.</msg>
+<arg>xpath=(//button[contains(normalize-space(.), 'Sửa')])[1]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:28.812354" elapsed="0.135664"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@placeholder='Tên danh mục']</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:28.949074" elapsed="0.028479"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@placeholder='Tên danh mục']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:28.978255" elapsed="0.050748"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:29.030194" level="INFO">Typing text 'DM' into text field 'xpath=//input[@placeholder='Tên danh mục']'.</msg>
+<arg>xpath=//input[@placeholder='Tên danh mục']</arg>
+<arg>${UPDATE_CAT_NAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:29.029626" elapsed="0.090862"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:29.121450" level="INFO">Clicking button 'xpath=//button[@type='submit' and contains(normalize-space(.), 'Cập nhật')]'.</msg>
+<arg>xpath=//button[@type='submit' and contains(normalize-space(.), 'Cập nhật')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:29.121050" elapsed="0.076631"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Cập nhật danh mục thành công!</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:29.199480" elapsed="0.036640"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//tr[td[strong[text()='${UPDATE_CAT_NAME}']]]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:29.236882" elapsed="0.024548"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Capture Screenshot For Test Case">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2026-06-24T23:35:29.263615" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\screenshots"&gt;C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\screenshots&lt;/a&gt;' already exists.</msg>
+<arg>${OUTPUT_DIR}/screenshots</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2026-06-24T23:35:29.263200" elapsed="0.000520"/>
+</kw>
+<kw name="Get Time" owner="BuiltIn">
+<msg time="2026-06-24T23:35:29.264277" level="INFO">${timestamp} = 1782318929</msg>
+<var>${timestamp}</var>
+<arg>epoch</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="PASS" start="2026-06-24T23:35:29.263902" elapsed="0.000416"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:29.341634" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/TC%20CAT%2002%20Cap%20Nhat%20Danh%20Muc_1782318929.png"&gt;&lt;img src="screenshots/TC%20CAT%2002%20Cap%20Nhat%20Danh%20Muc_1782318929.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${OUTPUT_DIR}/screenshots/${TEST_NAME}_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-06-24T23:35:29.264475" elapsed="0.077326"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:29.262868" elapsed="0.079144"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-24T23:35:29.342270" elapsed="2.295887"/>
+</kw>
+<arg>Capture Screenshot For Test Case</arg>
+<arg>AND</arg>
+<arg>Close Browser</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-06-24T23:35:29.262151" elapsed="2.376158"/>
+</kw>
+<doc>Sửa danh mục đầu tiên thành DM.</doc>
+<tag>category</tag>
+<tag>update</tag>
+<status status="PASS" start="2026-06-24T23:35:25.967588" elapsed="5.671107"/>
+</test>
+<test id="s1-t6" name="TC CAT 03 Xoa Danh Muc Co So San Pham Bang 0" line="140">
+<kw name="Dang Nhap Admin">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:31.640812" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-24T23:35:31.640517" elapsed="1.682058"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-24T23:35:33.323140" elapsed="0.035960"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@placeholder='Nhập email']</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:33.359458" elapsed="0.036129"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:33.396397" level="INFO">Typing text 'admin@gmail.com' into text field 'xpath=//input[@placeholder='Nhập email']'.</msg>
+<arg>xpath=//input[@placeholder='Nhập email']</arg>
+<arg>${ADMIN_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:33.395918" elapsed="0.209952"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:33.607121" level="INFO">Typing password into text field 'xpath=//input[@type='password']'.</msg>
+<msg time="2026-06-24T23:35:33.666823" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>xpath=//input[@type='password']</arg>
+<arg>${ADMIN_PASS}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:33.606347" elapsed="0.175675"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:33.783129" level="INFO">Clicking button 'xpath=//button[contains(normalize-space(.), 'Đăng nhập')]'.</msg>
+<arg>xpath=//button[contains(normalize-space(.), 'Đăng nhập')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:33.782594" elapsed="0.155085"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/admin</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-06-24T23:35:33.938217" elapsed="0.061440"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:31.640170" elapsed="2.359786"/>
+</kw>
+<kw name="Di Den Quan Ly Danh Muc">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:34.002154" elapsed="0.075836"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:34.078958" level="INFO">Clicking element 'xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]'.</msg>
+<arg>xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:34.078470" elapsed="0.091082"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Quản lý Danh mục &amp; Thương hiệu</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:34.170173" elapsed="0.065851"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:34.001233" elapsed="0.235115"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Danh sách danh mục</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:34.237036" elapsed="0.025428"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=(//tr[td[span[text()='0']]]//button[contains(normalize-space(.), 'Xóa')])[1]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:34.263157" elapsed="0.037177"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:34.301781" level="INFO">Clicking button 'xpath=(//tr[td[span[text()='0']]]//button[contains(normalize-space(.), 'Xóa')])[1]'.</msg>
+<arg>xpath=(//tr[td[span[text()='0']]]//button[contains(normalize-space(.), 'Xóa')])[1]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:34.301026" elapsed="0.124537"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:34.426540" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<arg>ACCEPT</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2026-06-24T23:35:34.426179" elapsed="0.010730"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Xóa danh mục thành công!</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:34.438254" elapsed="0.236504"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Capture Screenshot For Test Case">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2026-06-24T23:35:34.681782" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\screenshots"&gt;C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\screenshots&lt;/a&gt;' already exists.</msg>
+<arg>${OUTPUT_DIR}/screenshots</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2026-06-24T23:35:34.680593" elapsed="0.001421"/>
+</kw>
+<kw name="Get Time" owner="BuiltIn">
+<msg time="2026-06-24T23:35:34.683555" level="INFO">${timestamp} = 1782318934</msg>
+<var>${timestamp}</var>
+<arg>epoch</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="PASS" start="2026-06-24T23:35:34.682521" elapsed="0.001106"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:34.774602" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/TC%20CAT%2003%20Xoa%20Danh%20Muc%20Co%20So%20San%20Pham%20Bang%200_1782318934.png"&gt;&lt;img src="screenshots/TC%20CAT%2003%20Xoa%20Danh%20Muc%20Co%20So%20San%20Pham%20Bang%200_1782318934.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${OUTPUT_DIR}/screenshots/${TEST_NAME}_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-06-24T23:35:34.684042" elapsed="0.090966"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:34.678174" elapsed="0.097408"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-24T23:35:34.776034" elapsed="2.276835"/>
+</kw>
+<arg>Capture Screenshot For Test Case</arg>
+<arg>AND</arg>
+<arg>Close Browser</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-06-24T23:35:34.676570" elapsed="2.376588"/>
+</kw>
+<doc>Xóa danh mục có số sản phẩm bằng 0.</doc>
+<tag>category</tag>
+<tag>delete</tag>
+<tag>success</tag>
+<status status="PASS" start="2026-06-24T23:35:31.639268" elapsed="5.414369"/>
+</test>
+<test id="s1-t7" name="TC CAT 04 Xoa Danh Muc Co San Pham Bi Khoa" line="152">
+<kw name="Dang Nhap Admin">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:37.057737" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-24T23:35:37.057224" elapsed="1.687049"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-24T23:35:38.744697" elapsed="0.055671"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@placeholder='Nhập email']</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:38.800801" elapsed="0.044867"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:38.847118" level="INFO">Typing text 'admin@gmail.com' into text field 'xpath=//input[@placeholder='Nhập email']'.</msg>
+<arg>xpath=//input[@placeholder='Nhập email']</arg>
+<arg>${ADMIN_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:38.846353" elapsed="0.242969"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:39.090902" level="INFO">Typing password into text field 'xpath=//input[@type='password']'.</msg>
+<msg time="2026-06-24T23:35:39.162287" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>xpath=//input[@type='password']</arg>
+<arg>${ADMIN_PASS}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:39.089968" elapsed="0.158027"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:39.249337" level="INFO">Clicking button 'xpath=//button[contains(normalize-space(.), 'Đăng nhập')]'.</msg>
+<arg>xpath=//button[contains(normalize-space(.), 'Đăng nhập')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:39.248522" elapsed="0.161622"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/admin</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-06-24T23:35:39.410909" elapsed="0.052474"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:37.056579" elapsed="2.407166"/>
+</kw>
+<kw name="Di Den Quan Ly Danh Muc">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:39.465524" elapsed="0.074716"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:39.540947" level="INFO">Clicking element 'xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]'.</msg>
+<arg>xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:39.540552" elapsed="0.089358"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Quản lý Danh mục &amp; Thương hiệu</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:39.630276" elapsed="0.055240"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:39.464720" elapsed="0.221114"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Danh sách danh mục</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:39.686670" elapsed="0.024006"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=(//tr[td[span[text()!='0']]]//button[contains(normalize-space(.), 'Xóa')])[1]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:39.711868" elapsed="0.034827"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:39.748000" level="INFO">Clicking button 'xpath=(//tr[td[span[text()!='0']]]//button[contains(normalize-space(.), 'Xóa')])[1]'.</msg>
+<arg>xpath=(//tr[td[span[text()!='0']]]//button[contains(normalize-space(.), 'Xóa')])[1]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:39.747422" elapsed="0.149315"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:39.897916" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<arg>ACCEPT</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2026-06-24T23:35:39.897493" elapsed="0.012005"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>đang sử dụng</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:39.910928" elapsed="0.029283"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Capture Screenshot For Test Case">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2026-06-24T23:35:39.943565" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\screenshots"&gt;C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\screenshots&lt;/a&gt;' already exists.</msg>
+<arg>${OUTPUT_DIR}/screenshots</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2026-06-24T23:35:39.942913" elapsed="0.000804"/>
+</kw>
+<kw name="Get Time" owner="BuiltIn">
+<msg time="2026-06-24T23:35:39.945025" level="INFO">${timestamp} = 1782318939</msg>
+<var>${timestamp}</var>
+<arg>epoch</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="PASS" start="2026-06-24T23:35:39.944087" elapsed="0.001036"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:40.057267" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/TC%20CAT%2004%20Xoa%20Danh%20Muc%20Co%20San%20Pham%20Bi%20Khoa_1782318939.png"&gt;&lt;img src="screenshots/TC%20CAT%2004%20Xoa%20Danh%20Muc%20Co%20San%20Pham%20Bi%20Khoa_1782318939.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${OUTPUT_DIR}/screenshots/${TEST_NAME}_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-06-24T23:35:39.945506" elapsed="0.112127"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:39.942175" elapsed="0.115758"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-24T23:35:40.058322" elapsed="2.333302"/>
+</kw>
+<arg>Capture Screenshot For Test Case</arg>
+<arg>AND</arg>
+<arg>Close Browser</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-06-24T23:35:39.941074" elapsed="2.450807"/>
+</kw>
+<doc>Cố xóa danh mục có sản phẩm đang sử dụng.</doc>
+<tag>category</tag>
+<tag>delete</tag>
+<tag>error</tag>
+<status status="PASS" start="2026-06-24T23:35:37.055072" elapsed="5.337310"/>
+</test>
+<test id="s1-t8" name="TC BRA 01 Them Thuong Hieu Moi" line="164">
+<kw name="Dang Nhap Admin">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:42.396130" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-24T23:35:42.395605" elapsed="1.811098"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-24T23:35:44.207227" elapsed="0.035339"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@placeholder='Nhập email']</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:44.242857" elapsed="0.031595"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:44.275412" level="INFO">Typing text 'admin@gmail.com' into text field 'xpath=//input[@placeholder='Nhập email']'.</msg>
+<arg>xpath=//input[@placeholder='Nhập email']</arg>
+<arg>${ADMIN_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:44.274790" elapsed="0.209410"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:44.485175" level="INFO">Typing password into text field 'xpath=//input[@type='password']'.</msg>
+<msg time="2026-06-24T23:35:44.535320" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>xpath=//input[@type='password']</arg>
+<arg>${ADMIN_PASS}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:44.484504" elapsed="0.134238"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:44.619921" level="INFO">Clicking button 'xpath=//button[contains(normalize-space(.), 'Đăng nhập')]'.</msg>
+<arg>xpath=//button[contains(normalize-space(.), 'Đăng nhập')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:44.619149" elapsed="0.144802"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/admin</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-06-24T23:35:44.764579" elapsed="0.051167"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:42.395072" elapsed="2.421109"/>
+</kw>
+<kw name="Di Den Quan Ly Danh Muc">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:44.817821" elapsed="0.091190"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:44.909748" level="INFO">Clicking element 'xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]'.</msg>
+<arg>xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:44.909344" elapsed="0.091362"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Quản lý Danh mục &amp; Thương hiệu</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:45.001094" elapsed="0.047508"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:44.816946" elapsed="0.232115"/>
+</kw>
+<kw name="Chuyen Sang Tab Thuong Hieu">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(normalize-space(.), 'Thương hiệu')]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:45.050431" elapsed="0.028721"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:45.079923" level="INFO">Clicking element 'xpath=//button[contains(normalize-space(.), 'Thương hiệu')]'.</msg>
+<arg>xpath=//button[contains(normalize-space(.), 'Thương hiệu')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:45.079507" elapsed="0.120508"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Thêm thương hiệu mới</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:45.200312" elapsed="0.019216"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:45.049663" elapsed="0.170084"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Thêm thương hiệu mới</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:45.220273" elapsed="0.017034"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:45.239245" level="INFO">Typing text 'ASUS' into text field 'xpath=//input[@placeholder='Tên thương hiệu']'.</msg>
+<arg>xpath=//input[@placeholder='Tên thương hiệu']</arg>
+<arg>${NEW_BRA_NAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:45.238225" elapsed="0.180921"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:45.420215" level="INFO">Clicking button 'xpath=//button[@type='submit' and contains(normalize-space(.), 'Thêm mới')]'.</msg>
+<arg>xpath=//button[@type='submit' and contains(normalize-space(.), 'Thêm mới')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:45.419782" elapsed="0.113405"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Thêm thương hiệu thành công!</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:45.533880" elapsed="0.018615"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//tr[td[strong[text()='${NEW_BRA_NAME}']]]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:45.553304" elapsed="0.031543"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:45.597036" level="INFO">Current page contains element 'xpath=//tr[td[strong[text()='ASUS']] and td[span[text()='0']]]'.</msg>
+<arg>xpath=//tr[td[strong[text()='${NEW_BRA_NAME}']] and td[span[text()='0']]]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:45.585695" elapsed="0.011553"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Capture Screenshot For Test Case">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2026-06-24T23:35:45.600876" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\screenshots"&gt;C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\screenshots&lt;/a&gt;' already exists.</msg>
+<arg>${OUTPUT_DIR}/screenshots</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2026-06-24T23:35:45.600308" elapsed="0.000726"/>
+</kw>
+<kw name="Get Time" owner="BuiltIn">
+<msg time="2026-06-24T23:35:45.602029" level="INFO">${timestamp} = 1782318945</msg>
+<var>${timestamp}</var>
+<arg>epoch</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="PASS" start="2026-06-24T23:35:45.601353" elapsed="0.000754"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:45.670606" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/TC%20BRA%2001%20Them%20Thuong%20Hieu%20Moi_1782318945.png"&gt;&lt;img src="screenshots/TC%20BRA%2001%20Them%20Thuong%20Hieu%20Moi_1782318945.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${OUTPUT_DIR}/screenshots/${TEST_NAME}_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-06-24T23:35:45.602372" elapsed="0.068450"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:45.599650" elapsed="0.071351"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-24T23:35:45.671245" elapsed="2.381839"/>
+</kw>
+<arg>Capture Screenshot For Test Case</arg>
+<arg>AND</arg>
+<arg>Close Browser</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-06-24T23:35:45.598420" elapsed="2.454940"/>
+</kw>
+<doc>Thêm thương hiệu mới và kiểm tra hiển thị.</doc>
+<tag>brand</tag>
+<tag>create</tag>
+<status status="PASS" start="2026-06-24T23:35:42.393861" elapsed="5.660199"/>
+</test>
+<test id="s1-t9" name="TC BRA 02 Cap Nhat Thuong Hieu" line="178">
+<kw name="Dang Nhap Admin">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:48.057914" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-24T23:35:48.057388" elapsed="1.745789"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-24T23:35:49.803529" elapsed="0.033647"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@placeholder='Nhập email']</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:49.837420" elapsed="0.047915"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:49.886225" level="INFO">Typing text 'admin@gmail.com' into text field 'xpath=//input[@placeholder='Nhập email']'.</msg>
+<arg>xpath=//input[@placeholder='Nhập email']</arg>
+<arg>${ADMIN_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:49.885719" elapsed="0.250229"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:50.137390" level="INFO">Typing password into text field 'xpath=//input[@type='password']'.</msg>
+<msg time="2026-06-24T23:35:50.182263" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>xpath=//input[@type='password']</arg>
+<arg>${ADMIN_PASS}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:50.136352" elapsed="0.147877"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:50.285381" level="INFO">Clicking button 'xpath=//button[contains(normalize-space(.), 'Đăng nhập')]'.</msg>
+<arg>xpath=//button[contains(normalize-space(.), 'Đăng nhập')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:50.284793" elapsed="0.138175"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/admin</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-06-24T23:35:50.423607" elapsed="0.056496"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:48.056749" elapsed="2.423643"/>
+</kw>
+<kw name="Di Den Quan Ly Danh Muc">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:50.481929" elapsed="0.065298"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:50.547779" level="INFO">Clicking element 'xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]'.</msg>
+<arg>xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:50.547483" elapsed="0.078405"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Quản lý Danh mục &amp; Thương hiệu</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:50.626304" elapsed="0.052189"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:50.481234" elapsed="0.197466"/>
+</kw>
+<kw name="Chuyen Sang Tab Thuong Hieu">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(normalize-space(.), 'Thương hiệu')]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:50.680407" elapsed="0.024653"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:50.705804" level="INFO">Clicking element 'xpath=//button[contains(normalize-space(.), 'Thương hiệu')]'.</msg>
+<arg>xpath=//button[contains(normalize-space(.), 'Thương hiệu')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:50.705440" elapsed="0.107854"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Thêm thương hiệu mới</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:50.814138" elapsed="0.018991"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:50.679408" elapsed="0.154059"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Danh sách thương hiệu</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:50.834133" elapsed="0.032628"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=(//button[contains(normalize-space(.), 'Sửa')])[1]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:50.867365" elapsed="0.026556"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:50.895422" level="INFO">Clicking button 'xpath=(//button[contains(normalize-space(.), 'Sửa')])[1]'.</msg>
+<arg>xpath=(//button[contains(normalize-space(.), 'Sửa')])[1]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:50.894853" elapsed="0.129641"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@placeholder='Tên thương hiệu']</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:51.025257" elapsed="0.019606"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>xpath=//input[@placeholder='Tên thương hiệu']</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:51.045486" elapsed="0.035540"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:51.082144" level="INFO">Typing text 'DELL' into text field 'xpath=//input[@placeholder='Tên thương hiệu']'.</msg>
+<arg>xpath=//input[@placeholder='Tên thương hiệu']</arg>
+<arg>${UPDATE_BRA_NAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:51.081598" elapsed="0.103656"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:51.186524" level="INFO">Clicking button 'xpath=//button[@type='submit' and contains(normalize-space(.), 'Cập nhật')]'.</msg>
+<arg>xpath=//button[@type='submit' and contains(normalize-space(.), 'Cập nhật')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:51.186170" elapsed="0.082025"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Cập nhật thương hiệu thành công!</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:51.268949" elapsed="0.234946"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//tr[td[strong[text()='${UPDATE_BRA_NAME}']]]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:51.504617" elapsed="0.026343"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Capture Screenshot For Test Case">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2026-06-24T23:35:51.533533" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\screenshots"&gt;C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\screenshots&lt;/a&gt;' already exists.</msg>
+<arg>${OUTPUT_DIR}/screenshots</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2026-06-24T23:35:51.532609" elapsed="0.001130"/>
+</kw>
+<kw name="Get Time" owner="BuiltIn">
+<msg time="2026-06-24T23:35:51.535066" level="INFO">${timestamp} = 1782318951</msg>
+<var>${timestamp}</var>
+<arg>epoch</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="PASS" start="2026-06-24T23:35:51.534119" elapsed="0.001038"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:51.591998" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/TC%20BRA%2002%20Cap%20Nhat%20Thuong%20Hieu_1782318951.png"&gt;&lt;img src="screenshots/TC%20BRA%2002%20Cap%20Nhat%20Thuong%20Hieu_1782318951.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${OUTPUT_DIR}/screenshots/${TEST_NAME}_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-06-24T23:35:51.535486" elapsed="0.056689"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:51.532112" elapsed="0.060242"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-24T23:35:51.592544" elapsed="2.280700"/>
+</kw>
+<arg>Capture Screenshot For Test Case</arg>
+<arg>AND</arg>
+<arg>Close Browser</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-06-24T23:35:51.531566" elapsed="2.341900"/>
+</kw>
+<doc>Sửa thương hiệu đầu tiên thành DELL.</doc>
+<tag>brand</tag>
+<tag>update</tag>
+<status status="PASS" start="2026-06-24T23:35:48.055610" elapsed="5.818636"/>
+</test>
+<test id="s1-t10" name="TC BRA 03 Xoa Thuong Hieu Co So San Pham Bang 0" line="195">
+<kw name="Dang Nhap Admin">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:53.877246" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-24T23:35:53.876904" elapsed="1.656460"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-24T23:35:55.534063" elapsed="0.046164"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@placeholder='Nhập email']</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:55.580590" elapsed="0.044299"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:55.625887" level="INFO">Typing text 'admin@gmail.com' into text field 'xpath=//input[@placeholder='Nhập email']'.</msg>
+<arg>xpath=//input[@placeholder='Nhập email']</arg>
+<arg>${ADMIN_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:55.625294" elapsed="0.284270"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:55.910596" level="INFO">Typing password into text field 'xpath=//input[@type='password']'.</msg>
+<msg time="2026-06-24T23:35:55.991735" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>xpath=//input[@type='password']</arg>
+<arg>${ADMIN_PASS}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:55.909975" elapsed="0.207770"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:56.119206" level="INFO">Clicking button 'xpath=//button[contains(normalize-space(.), 'Đăng nhập')]'.</msg>
+<arg>xpath=//button[contains(normalize-space(.), 'Đăng nhập')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:56.118338" elapsed="0.170834"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/admin</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-06-24T23:35:56.289617" elapsed="0.090120"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:53.876459" elapsed="2.503537"/>
+</kw>
+<kw name="Di Den Quan Ly Danh Muc">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:56.381186" elapsed="0.038302"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:56.420321" level="INFO">Clicking element 'xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]'.</msg>
+<arg>xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:56.419876" elapsed="0.100615"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Quản lý Danh mục &amp; Thương hiệu</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:56.520877" elapsed="0.048458"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:56.380618" elapsed="0.189198"/>
+</kw>
+<kw name="Chuyen Sang Tab Thuong Hieu">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(normalize-space(.), 'Thương hiệu')]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:56.572486" elapsed="0.031843"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:56.605766" level="INFO">Clicking element 'xpath=//button[contains(normalize-space(.), 'Thương hiệu')]'.</msg>
+<arg>xpath=//button[contains(normalize-space(.), 'Thương hiệu')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:56.604952" elapsed="0.113913"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Thêm thương hiệu mới</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:56.719116" elapsed="0.020373"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:56.570793" elapsed="0.168870"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Danh sách thương hiệu</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:56.740302" elapsed="0.020919"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=(//tr[td[span[text()='0']]]//button[contains(normalize-space(.), 'Xóa')])[1]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:35:56.761669" elapsed="0.033058"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:56.796164" level="INFO">Clicking button 'xpath=(//tr[td[span[text()='0']]]//button[contains(normalize-space(.), 'Xóa')])[1]'.</msg>
+<arg>xpath=(//tr[td[span[text()='0']]]//button[contains(normalize-space(.), 'Xóa')])[1]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:35:56.795432" elapsed="0.092367"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:56.888865" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<arg>ACCEPT</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2026-06-24T23:35:56.888552" elapsed="0.008746"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Xóa thương hiệu thành công!</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:35:56.898188" elapsed="0.033149"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Capture Screenshot For Test Case">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2026-06-24T23:35:56.933979" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\screenshots"&gt;C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\screenshots&lt;/a&gt;' already exists.</msg>
+<arg>${OUTPUT_DIR}/screenshots</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2026-06-24T23:35:56.933514" elapsed="0.000633"/>
+</kw>
+<kw name="Get Time" owner="BuiltIn">
+<msg time="2026-06-24T23:35:56.935111" level="INFO">${timestamp} = 1782318956</msg>
+<var>${timestamp}</var>
+<arg>epoch</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="PASS" start="2026-06-24T23:35:56.934422" elapsed="0.000769"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:57.027013" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/TC%20BRA%2003%20Xoa%20Thuong%20Hieu%20Co%20So%20San%20Pham%20Bang%200_1782318956.png"&gt;&lt;img src="screenshots/TC%20BRA%2003%20Xoa%20Thuong%20Hieu%20Co%20So%20San%20Pham%20Bang%200_1782318956.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${OUTPUT_DIR}/screenshots/${TEST_NAME}_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-06-24T23:35:56.935533" elapsed="0.092163"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:56.932749" elapsed="0.095281"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-24T23:35:57.028427" elapsed="2.213086"/>
+</kw>
+<arg>Capture Screenshot For Test Case</arg>
+<arg>AND</arg>
+<arg>Close Browser</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-06-24T23:35:56.932006" elapsed="2.309800"/>
+</kw>
+<doc>Xóa thương hiệu có số sản phẩm bằng 0.</doc>
+<tag>brand</tag>
+<tag>delete</tag>
+<tag>success</tag>
+<status status="PASS" start="2026-06-24T23:35:53.875144" elapsed="5.367870"/>
+</test>
+<test id="s1-t11" name="TC BRA 04 Xoa Thuong Hieu Co San Pham Bi Khoa" line="208">
+<kw name="Dang Nhap Admin">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:35:59.247196" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-24T23:35:59.246690" elapsed="1.743884"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-24T23:36:00.990921" elapsed="0.035162"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@placeholder='Nhập email']</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:36:01.026397" elapsed="0.048501"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:36:01.075706" level="INFO">Typing text 'admin@gmail.com' into text field 'xpath=//input[@placeholder='Nhập email']'.</msg>
+<arg>xpath=//input[@placeholder='Nhập email']</arg>
+<arg>${ADMIN_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:36:01.075216" elapsed="0.249337"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:36:01.325664" level="INFO">Typing password into text field 'xpath=//input[@type='password']'.</msg>
+<msg time="2026-06-24T23:36:01.372794" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>xpath=//input[@type='password']</arg>
+<arg>${ADMIN_PASS}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:36:01.324978" elapsed="0.144416"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:36:01.470929" level="INFO">Clicking button 'xpath=//button[contains(normalize-space(.), 'Đăng nhập')]'.</msg>
+<arg>xpath=//button[contains(normalize-space(.), 'Đăng nhập')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:36:01.470045" elapsed="0.145245"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/admin</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-06-24T23:36:01.616188" elapsed="0.085515"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:35:59.246054" elapsed="2.455879"/>
+</kw>
+<kw name="Di Den Quan Ly Danh Muc">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:36:01.702947" elapsed="0.031529"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:36:01.735045" level="INFO">Clicking element 'xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]'.</msg>
+<arg>xpath=//a[contains(., 'Quản lý danh mục, thương hiệu')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:36:01.734745" elapsed="0.079909"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Quản lý Danh mục &amp; Thương hiệu</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:36:01.815119" elapsed="0.051732"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:36:01.702471" elapsed="0.164658"/>
+</kw>
+<kw name="Chuyen Sang Tab Thuong Hieu">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(normalize-space(.), 'Thương hiệu')]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:36:01.868674" elapsed="0.025811"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:36:01.895246" level="INFO">Clicking element 'xpath=//button[contains(normalize-space(.), 'Thương hiệu')]'.</msg>
+<arg>xpath=//button[contains(normalize-space(.), 'Thương hiệu')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:36:01.894792" elapsed="0.134280"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Thêm thương hiệu mới</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:36:02.029449" elapsed="0.019668"/>
+</kw>
+<status status="PASS" start="2026-06-24T23:36:01.867731" elapsed="0.181743"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Danh sách thương hiệu</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-06-24T23:36:02.050430" elapsed="0.023550"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=(//tr[td[span[text()!='0']]]//button[contains(normalize-space(.), 'Xóa')])[1]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-24T23:36:02.075267" elapsed="0.050994"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:36:02.127840" level="INFO">Clicking button 'xpath=(//tr[td[span[text()!='0']]]//button[contains(normalize-space(.), 'Xóa')])[1]'.</msg>
+<arg>xpath=(//tr[td[span[text()!='0']]]//button[contains(normalize-space(.), 'Xóa')])[1]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-24T23:36:02.127258" elapsed="0.105546"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Capture Screenshot For Test Case">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2026-06-24T23:36:02.235806" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\screenshots"&gt;C:\Users\kha\OneDrive\Desktop\KCPM\Kiem-Thu-Phan-Mem-Nhom-01\backend\screenshots&lt;/a&gt;' already exists.</msg>
+<arg>${OUTPUT_DIR}/screenshots</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2026-06-24T23:36:02.235245" elapsed="0.000711"/>
+</kw>
+<kw name="Get Time" owner="BuiltIn">
+<msg time="2026-06-24T23:36:02.237068" level="INFO">${timestamp} = 1782318962</msg>
+<var>${timestamp}</var>
+<arg>epoch</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="PASS" start="2026-06-24T23:36:02.236293" elapsed="0.000861"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-06-24T23:36:02.368679" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-06-24T23:36:02.369129" level="FAIL">UnexpectedAlertPresentException: Alert Text: Thương hiệu này có 3 sản phẩm. Bạn có chắc muốn xóa?
+Message: unexpected alert open: {Alert text : Thương hiệu này có 3 sản phẩm. Bạn có chắc muốn xóa?}
+  (Session info: chrome=149.0.7827.115)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6d6283fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6d6284000+14980]
+	chromedriver!(No symbol) [0x7ff6d5dc793d]
+	chromedriver!(No symbol) [0x7ff6d5e6fe3d]
+	chromedriver!(No symbol) [0x7ff6d5e1401c]
+	chromedriver!(No symbol) [0x7ff6d5e14f43]
+	chromedriver!GetHandleVerifier [0x7ff6d6867591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6d6861902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6d6887115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6d62a1dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6d62aa82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6d628d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6d628d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6d6271447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ffe157be8d7+17]
+	ntdll!RtlUserThreadStart [0x7ffe17a4c53c+2c]
+</msg>
+<arg>${OUTPUT_DIR}/screenshots/${TEST_NAME}_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="FAIL" start="2026-06-24T23:36:02.237466" elapsed="0.316366">UnexpectedAlertPresentException: Alert Text: Thương hiệu này có 3 sản phẩm. Bạn có chắc muốn xóa?
+Message: unexpected alert open: {Alert text : Thương hiệu này có 3 sản phẩm. Bạn có chắc muốn xóa?}
+  (Session info: chrome=149.0.7827.115)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6d6283fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6d6284000+14980]
+	chromedriver!(No symbol) [0x7ff6d5dc793d]
+	chromedriver!(No symbol) [0x7ff6d5e6fe3d]
+	chromedriver!(No symbol) [0x7ff6d5e1401c]
+	chromedriver!(No symbol) [0x7ff6d5e14f43]
+	chromedriver!GetHandleVerifier [0x7ff6d6867591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6d6861902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6d6887115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6d62a1dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6d62aa82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6d628d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6d628d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6d6271447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ffe157be8d7+17]
+	ntdll!RtlUserThreadStart [0x7ffe17a4c53c+2c]
+</status>
+</kw>
+<status status="FAIL" start="2026-06-24T23:36:02.234599" elapsed="0.319567">UnexpectedAlertPresentException: Alert Text: Thương hiệu này có 3 sản phẩm. Bạn có chắc muốn xóa?
+Message: unexpected alert open: {Alert text : Thương hiệu này có 3 sản phẩm. Bạn có chắc muốn xóa?}
+  (Session info: chrome=149.0.7827.115)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6d6283fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6d6284000+14980]
+	chromedriver!(No symbol) [0x7ff6d5dc793d]
+	chromedriver!(No symbol) [0x7ff6d5e6fe3d]
+	chromedriver!(No symbol) [0x7ff6d5e1401c]
+	chromedriver!(No symbol) [0x7ff6d5e14f43]
+	chromedriver!GetHandleVerifier [0x7ff6d6867591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6d6861902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6d6887115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6d62a1dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6d62aa82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6d628d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6d628d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6d6271447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ffe157be8d7+17]
+	ntdll!RtlUserThreadStart [0x7ffe17a4c53c+2c]
+</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-24T23:36:02.554405" elapsed="2.198824"/>
+</kw>
+<arg>Capture Screenshot For Test Case</arg>
+<arg>AND</arg>
+<arg>Close Browser</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="FAIL" start="2026-06-24T23:36:02.233584" elapsed="2.519996">UnexpectedAlertPresentException: Alert Text: Thương hiệu này có 3 sản phẩm. Bạn có chắc muốn xóa?
+Message: unexpected alert open: {Alert text : Thương hiệu này có 3 sản phẩm. Bạn có chắc muốn xóa?}
+  (Session info: chrome=149.0.7827.115)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6d6283fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6d6284000+14980]
+	chromedriver!(No symbol) [0x7ff6d5dc793d]
+	chromedriver!(No symbol) [0x7ff6d5e6fe3d]
+	chromedriver!(No symbol) [0x7ff6d5e1401c]
+	chromedriver!(No symbol) [0x7ff6d5e14f43]
+	chromedriver!GetHandleVerifier [0x7ff6d6867591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6d6861902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6d6887115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6d62a1dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6d62aa82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6d628d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6d628d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6d6271447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ffe157be8d7+17]
+	ntdll!RtlUserThreadStart [0x7ffe17a4c53c+2c]
+</status>
+</kw>
+<doc>Cố xóa thương hiệu có sản phẩm đang sử dụng.</doc>
+<tag>brand</tag>
+<tag>delete</tag>
+<tag>error</tag>
+<status status="FAIL" start="2026-06-24T23:35:59.244432" elapsed="5.509837">Teardown failed:
+UnexpectedAlertPresentException: Alert Text: Thương hiệu này có 3 sản phẩm. Bạn có chắc muốn xóa?
+Message: unexpected alert open: {Alert text : Thương hiệu này có 3 sản phẩm. Bạn có chắc muốn xóa?}
+  (Session info: chrome=149.0.7827.115)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6d6283fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6d6284000+14980]
+	chromedriver!(No symbol) [0x7ff6d5dc793d]
+	chromedriver!(No symbol) [0x7ff6d5e6fe3d]
+	chromedriver!(No symbol) [0x7ff6d5e1401c]
+	chromedriver!(No symbol) [0x7ff6d5e14f43]
+	chromedriver!GetHandleVerifier [0x7ff6d6867591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6d6861902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6d6887115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6d62a1dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6d62aa82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6d628d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6d628d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6d6271447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ffe157be8d7+17]
+	ntdll!RtlUserThreadStart [0x7ffe17a4c53c+2c]
+</status>
+</test>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-06-24T23:36:04.756294" elapsed="0.000296"/>
+</kw>
+<status status="FAIL" start="2026-06-24T23:35:00.981841" elapsed="63.774838"/>
+</suite>
+<statistics>
+<total>
+<stat pass="10" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="3" fail="1" skip="0">brand</stat>
+<stat pass="4" fail="0" skip="0">category</stat>
+<stat pass="3" fail="0" skip="0">create</stat>
+<stat pass="4" fail="1" skip="0">delete</stat>
+<stat pass="1" fail="1" skip="0">error</stat>
+<stat pass="3" fail="0" skip="0">product</stat>
+<stat pass="2" fail="0" skip="0">success</stat>
+<stat pass="3" fail="0" skip="0">update</stat>
+</tag>
+<suite>
+<stat name="Test Admin" id="s1" pass="10" fail="1" skip="0">Test Admin</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
